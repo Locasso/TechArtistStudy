@@ -1,0 +1,1 @@
+- Reimportar textos de preço sem a sombra do componente pai
