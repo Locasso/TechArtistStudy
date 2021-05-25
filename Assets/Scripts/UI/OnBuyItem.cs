@@ -4,15 +4,14 @@ using UnityEngine;
 using UnityEngine.ParticleSystemJobs;
 
 public class OnBuyItem : MonoBehaviour
-{
-    public delegate void BoughtItem();
-    public static event BoughtItem OnBoughtItem; 
-    
-    [SerializeField] private GameObject popUpUnlock;
-    [SerializeField] private GameObject popUpShop;
-    [SerializeField] private GameObject popUpUnlockmModelPlaceHolder;
-    [SerializeField] private GameObject popUpUnlockBgParticles;
+{    
+    [Header("Referências de GameObject")]
+    [SerializeField] private GameObject popUpUnlock; //Referência do objeto base do PopUpUnlock.
+    [SerializeField] private GameObject popUpShop; //Referência do objeto base do PopUpShop.
+    [SerializeField] private GameObject popUpUnlockmModelPlaceHolder; //Referência do objeto base dos modelos em PopUpUnlock.
+    [SerializeField] private GameObject popUpUnlockBgParticles; //Referência do objeto base das partículas de background em PopUpUnlock.
 
+    //Método utilizado no fim da animação de fluxo entre "PopUpShop" e "PopUpUnlock" para fins de transição e setup.
     public void InvokeBuyItemAnim()
     {
         popUpShop.SetActive(false);

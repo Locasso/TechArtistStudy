@@ -12,7 +12,7 @@ public class RandomizeBG : MonoBehaviour
         imgReference.color = RandomizeBgColor();
     }
 
-    //Método que sorteia uma cor clara em RGB.
+    //Método que sorteia e retorna uma cor clara em RGB.
    public Color32 RandomizeBgColor()
     {
         Color32 newColor;

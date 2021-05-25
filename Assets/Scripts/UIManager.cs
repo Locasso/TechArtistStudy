@@ -6,18 +6,22 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] private GameObject[] modelsInCanvas;
-    [SerializeField] private Sprite[] icons;
-    [SerializeField] private Sprite[] names;
-    [SerializeField] private Sprite[] effects;
-    [SerializeField] private Sprite[] quantitys;
-    [SerializeField] private Material[] materials;
+    [Header("Referências de objetos")]
+    [SerializeField] private GameObject[] modelsInCanvas; //Modelos 3D dos ícones.
+    [SerializeField] private Sprite[] icons; //Sprite dos ícones de cards.
+    [SerializeField] private Sprite[] names; //Imagem do texto de nome de cada card.
+    [SerializeField] private Sprite[] effects; //Sprite do efeito de cada card.
+    [SerializeField] private Sprite[] quantitys; //Imagem do texto de quantidade de cada card.
+    [SerializeField] private Material[] materials; //Materiais usados para a partícula de background em PopUpUnlock.
 
-    [SerializeField] private GameObject popUpUnlockName;
-    [SerializeField] private GameObject popUpUnlockAnimatedBg;
-    [SerializeField] private GameObject popUpUnlockEffect;
-    [SerializeField] private GameObject popUpUnlockQuantity;
 
+    [Header("Referências de GameObjects na Hierarquia")]
+    [SerializeField] private GameObject popUpUnlockName; //Referência do GO de imagem do nome na PopUpUnlock.
+    [SerializeField] private GameObject popUpUnlockAnimatedBg; //Referência da partícula de background na PopUpUnlock.
+    [SerializeField] private GameObject popUpUnlockEffect; //Referência do GO efeito em sprite na PopUpUnlock.
+    [SerializeField] private GameObject popUpUnlockQuantity; //Referência do GO de imagem do texto de quantidade na PopUpUnlock.
+
+    //Invoca as funções para setar os objetos corretos quando o usuário clica em comprar em algum dos cards disponíveis.
     public void ChoosedCard(int id)
     {
         SetGOActive(id, modelsInCanvas);
@@ -27,16 +31,19 @@ public class UIManager : MonoBehaviour
         SetGOSprite(id, quantitys, popUpUnlockQuantity);
     }
 
+    //Seta o sprite da Imagem "reference" de acordo com o "id" em "objArray".
     void SetGOSprite(int id, Sprite[] objArray, GameObject reference)
     {
         reference.GetComponent<Image>().sprite = objArray[id];
     }
 
+    //Seta o material da Partícula "reference" de acordo com o "id" em "objArray".
     void SetParticleMaterial(int id, Material[] objArray, GameObject reference)
     {
         reference.GetComponent<ParticleSystemRenderer>().material = objArray[id];
     }
 
+    //Seleciona apenas um objeto de "objArray" para estar ativo, de acordo com o "id" passado.
     void SetGOActive(int id, GameObject[] objArray)
     {
         for (int i = 0; i <= objArray.Length - 1; i++)
