@@ -1,9 +1,0 @@
-- Reimportar textos de preço sem a sombra do componente pai
-
-- Fazer a animação do shop menu com os objetos vindo de diferentes direções junto com o alpha.
-
-- Pensar em como será feita a trasição de compra, e prototipar, junto da popup de apresentação do modelo.
-
-- Ainda falta modelar o macncheesebox e os sprays.
-
-- Prototipar como inserir partículas nas popups.
