@@ -16,10 +16,18 @@ public class UIManager : MonoBehaviour
 
 
     [Header("Referências de GameObjects na Hierarquia")]
+    [SerializeField] private GameObject modelsParent; //Referencia do objeto pai dos modelos.
     [SerializeField] private GameObject popUpUnlockName; //Referência do GO de imagem do nome na PopUpUnlock.
     [SerializeField] private GameObject popUpUnlockAnimatedBg; //Referência da partícula de background na PopUpUnlock.
     [SerializeField] private GameObject popUpUnlockEffect; //Referência do GO efeito em sprite na PopUpUnlock.
     [SerializeField] private GameObject popUpUnlockQuantity; //Referência do GO de imagem do texto de quantidade na PopUpUnlock.
+
+    public void Start()
+    {   
+        //Cálculo do Z do objeto pai dos modelos, para mantê-los em proporções parecidas em diferentes resoluções.
+        modelsParent.transform.position = new Vector3(modelsParent.transform.position.x, modelsParent.transform.position.y, 
+        (modelsParent.transform.position.z * Screen.dpi / (Screen.height + Screen.width)));
+    }
 
     //Invoca as funções para setar os objetos corretos quando o usuário clica em comprar em algum dos cards disponíveis.
     public void ChoosedCard(int id)
